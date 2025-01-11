@@ -1,6 +1,6 @@
 # Netflix database project using SQL
 
-l[Netflix_logo](https://github.com/SuriyaSureshkumar/Netflix_Database/blob/main/netflix_logo.png)
+![Netflix_logo](https://github.com/SuriyaSureshkumar/Netflix_Database/blob/main/netflix_logo.png)
 
 ## **Overview**
 This project involves a comprehensive analysis of Netflix's movies and TV shows data using SQL. 
