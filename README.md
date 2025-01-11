@@ -1,5 +1,7 @@
 # Netflix database project using SQL
-[Netflix_logo]()
+
+1[Netflix_logo](https://github.com/SuriyaSureshkumar/Netflix_Database/blob/main/netflix_logo.png)
+
 ## **Overview**
 This project involves a comprehensive analysis of Netflix's movies and TV shows data using SQL. 
 The goal is to extract valuable insights and answer various business questions based on the dataset.
