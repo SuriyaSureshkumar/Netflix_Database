@@ -28,11 +28,11 @@ create table Netflix
 	casts 			varchar(1000),
 	country 		varchar(150),
 	date_added 		varchar(50),
-	release_year 	int,
+	release_year 		int,
 	rating 			varchar(10),
 	duration 		varchar(15) ,
 	listed_in		varchar(150),
-	description 	varchar(300)
+	description 		varchar(300)
 );
 ```
 ## **Problem Statements**
@@ -55,7 +55,7 @@ select
 			rank() over (partition by type order by count(rating) desc) as Ranking
 			from netflix
 			group by 1,2
-			-- order by 3 desc;
+			order by 3 desc;
 	) as t1
 where Ranking = 1
 ```
@@ -145,9 +145,9 @@ order by Total desc
 ### 10.Find each year and the average numbers of content release in India on netflix and return top 5 year with highest avg content release!
 ```sql
 select 
-		extract (year from(to_date(date_added,'month dd,yyyy'))) as added_year,
-		count(*),
-		round(count(*)::numeric/(select count(*) from netflix where country = 'India')::numeric * 100,2) as Average
+	extract (year from(to_date(date_added,'month dd,yyyy'))) as added_year,
+	count(*),
+	round(count(*)::numeric/(select count(*) from netflix where country = 'India')::numeric * 100,2) as Average
 from netflix
 where country = 'India'
 group by 1
@@ -191,7 +191,10 @@ select
 	unnest(string_to_array(casts,',')) as Actors,
 	count(title) as movie_count
 	from netflix
-	where type = 'Movie' and country ilike '%india%'
+	where
+		type = 'Movie'
+		and
+		country ilike '%india%'
 	group by Actors
 	order by movie_count desc
 	limit 10;
@@ -205,7 +208,7 @@ select
 		else 'Good-Content'
 		end as movie_type,
 	count(*) as total_count
-	from netflix
-	group by 1
-	order by 2 desc;
+from netflix
+group by 1
+order by 2 desc;
 ```
